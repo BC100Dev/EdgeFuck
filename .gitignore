@@ -33,6 +33,6 @@ bin/
 
 ### Build + CLion + CMake ###
 build*
-Build*
+Builds*
 Output*
 cmake-build*
