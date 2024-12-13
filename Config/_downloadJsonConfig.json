@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Firefox",
+        "desc": "A fast, privacy-focused open source browser",
+        "lang": "en-US",
+        "download_link": "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang={lang_code}",
+        "version": "latest",
+        "follow_3xx": true,
+        "exec": "download"
+    },
+    {
+        "name": "Google Chrome",
+        "desc": "Google's widely-used browser known for performance and features",
+        "lang": null,
+        "download_link": "https://www.google.com/intl/de/chrome/",
+        "version": "latest",
+        "follow_3xx": true,
+        "exec": "open"
+    },
+    {
+        "name": "Chromium",
+        "desc": "The open-source base for Chrome, with minimal features",
+        "lang": null,
+        "download_link": "https://storage.googleapis.com/chromium-browser-snapshots/Win_x64/{version}/mini_installer.exe",
+        "version": "1395822",
+        "follow_3xx": true,
+        "exec": "download"
+    },
+    {
+        "name": "Brave",
+        "desc": "A privacy-first browser with built-in ad and tracker blocking.",
+        "lang": null,
+        "download_link": "https://referrals.brave.com/latest/BraveBrowserSetup.exe",
+        "version": "latest",
+        "follow_3xx": true,
+        "exec": "download"
+    },
+    {
+        "name": "Opera",
+        "desc": "A beautiful browser with a pretty sidebar and a free VPN",
+        "lang": null,
+        "download_link": "https://download.opera.com/download/get/?id=69054&location=415&nothanks=yes&sub=marine",
+        "version": "latest",
+        "follow_3xx": true,
+        "exec": "download"
+    },
+    {
+        "name": "Opera GX",
+        "desc": "A gaming-focused browser with customization and resource control",
+        "lang": null,
+        "download_link": "https://net.geo.opera.com/opera_gx/stable/windows?utm_source=google&utm_medium=ose&utm_campaign=%28none%29&http_referrer=https%3A%2F%2Fwww.google.com%2F&utm_site=opera_com&utm_lastpage=opera.com%2Fgx",
+        "version": "latest",
+        "follow_3xx": true,
+        "exec": "download"
+    }
+]

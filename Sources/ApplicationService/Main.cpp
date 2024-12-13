@@ -4,22 +4,20 @@
 SERVICE_STATUS ServiceStatus = {};
 SERVICE_STATUS_HANDLE ServiceStatusHandle = nullptr;
 
-// Service Name
-const char* SERVICE_NAME = "EdgeFuck_Service";
+auto SERVICE_NAME = "EdgeFuck_Service";
 
-// Function prototypes
-void WINAPI ServiceMain(DWORD argc, LPTSTR* argv);
+void WINAPI ServiceMain(DWORD argc, LPTSTR *argv);
+
 void WINAPI ServiceControlHandler(DWORD controlCode);
+
 void ReportServiceStatus(DWORD currentState, DWORD win32ExitCode, DWORD waitHint);
 
-// Entry point of the program
 int main() {
-    SERVICE_TABLE_ENTRY ServiceTable[] = {
-            { const_cast<LPSTR>(SERVICE_NAME), ServiceMain },
-            { nullptr, nullptr }
+    const SERVICE_TABLE_ENTRY ServiceTable[] = {
+        {const_cast<LPSTR>(SERVICE_NAME), ServiceMain},
+        {nullptr, nullptr}
     };
 
-    // Start the service control dispatcher
     if (!StartServiceCtrlDispatcher(ServiceTable)) {
         std::cerr << "StartServiceCtrlDispatcher failed: " << GetLastError() << std::endl;
         return 1;
@@ -28,14 +26,12 @@ int main() {
     return 0;
 }
 
-// The main function of the service
-void WINAPI ServiceMain(DWORD argc, LPTSTR* argv) {
+void WINAPI ServiceMain(DWORD argc, LPTSTR *argv) {
     ServiceStatusHandle = RegisterServiceCtrlHandler(SERVICE_NAME, ServiceControlHandler);
-    if (!ServiceStatusHandle) {
-        return;
-    }
 
-    // Initialize the service status structure
+    if (!ServiceStatusHandle)
+        return;
+
     ServiceStatus.dwServiceType = SERVICE_WIN32_OWN_PROCESS;
     ServiceStatus.dwControlsAccepted = SERVICE_ACCEPT_STOP;
     ServiceStatus.dwCurrentState = SERVICE_START_PENDING;
@@ -44,22 +40,17 @@ void WINAPI ServiceMain(DWORD argc, LPTSTR* argv) {
     ServiceStatus.dwCheckPoint = 0;
     ServiceStatus.dwWaitHint = 0;
 
-    // Report initial status to SCM
     ReportServiceStatus(SERVICE_START_PENDING, NO_ERROR, 3000);
 
-    // Simulate some initialization
-    Sleep(2000);
+    // TODO: init code
 
-    // Report running status to SCM
     ReportServiceStatus(SERVICE_RUNNING, NO_ERROR, 0);
 
-    // Service running: simulate a work loop
     while (ServiceStatus.dwCurrentState == SERVICE_RUNNING) {
-        // Simulate doing some work
+        // TODO: running service code
         Sleep(1000);
     }
 
-    // Clean up and exit
     ReportServiceStatus(SERVICE_STOPPED, NO_ERROR, 0);
 }
 
@@ -68,7 +59,8 @@ void WINAPI ServiceControlHandler(DWORD controlCode) {
     switch (controlCode) {
         case SERVICE_CONTROL_STOP:
             ReportServiceStatus(SERVICE_STOP_PENDING, NO_ERROR, 0);
-            // Signal the service to stop
+
+        // Signal the service to stop
             ServiceStatus.dwCurrentState = SERVICE_STOPPED;
             break;
         default:
@@ -82,10 +74,13 @@ void ReportServiceStatus(DWORD currentState, DWORD win32ExitCode, DWORD waitHint
     ServiceStatus.dwWin32ExitCode = win32ExitCode;
     ServiceStatus.dwWaitHint = waitHint;
 
-    if (currentState == SERVICE_RUNNING || currentState == SERVICE_STOPPED) {
-        ServiceStatus.dwCheckPoint = 0;
-    } else {
-        ServiceStatus.dwCheckPoint++;
+    switch (currentState) {
+        case SERVICE_RUNNING:
+        case SERVICE_STOPPED:
+            ServiceStatus.dwCheckPoint = 0;
+            break;
+        default:
+            ServiceStatus.dwCheckPoint++;
     }
 
     SetServiceStatus(ServiceStatusHandle, &ServiceStatus);
