@@ -14,9 +14,52 @@ big one, considering that Microsoft Edge isn't liked by certain users.
 
 Microsoft, if you are reading this, ***I dare you*** to flag this as a **malicious**
 software, like you did with other projects that allow the customization capabilities.
-One example is that [winutil](https://github.com/ChrisTitusTech/winutil) by Chris
-Titus Tech, which got flagged by you guys. Evidence? [This 
+One example is [winutil](https://github.com/ChrisTitusTech/winutil) by Chris Titus Tech,
+which got flagged by you guys. Evidence? [This
 video](https://www.youtube.com/watch?v=MuBeblbUXpU).
+
+---
+
+## Rebrand Notice
+This project will be rebranded to "MSFuck", considering that the moves Microsoft has
+been doing have been pretty much illegal (in a non-lawful sense). M$ forcing users into
+creating a Microhard account during the OOBE stage? Reæl. Shoving Copilot down our asses?
+Real. Recall, that shit-ass software that was already marked as Spyware coming back that
+has been breached again? Ræl.
+
+Basically, what I'm trying to say is that I'll make it not only Windows exclusive, but
+I'll also be porting this to Linux too. Yes, games still mostly run on Windows because
+companies are lazy in porting shit to Linux. Not just that, but for some people, things
+tend to be... haze-y.
+
+---
+
+## Temporary Archival
+Considering my recent movements into closed-source development, I am temporarily
+archiving this project. It is mainly to refocus and switch the active priorities, as
+managing a thousand projects gets tiring. I already got OsintgramCXX over here, along
+with AnlinxOS, tDEX, OpenMDJ, VPN Profile Manager and many others too. Another reason is
+to slow the hype down because I strongly believe that I may or may not have overhyped my
+own projects that I have listed. This also includes another dead project of mine,
+[aboawt](https://github.com/BC100Dev/aboawt). Anyway, right now, I will be focusing on
+developing [novihook.net](https://novihook.net) (don't worry about the certificates, I
+will deal with them on the public release, considering that Plesk decided to bitch around
+with their own certificates. Damn 💀). Novihook will end up being a better Webhook
+service. This shared notice will be put on all the relevant / active repos that I deem
+to be in the priorities.
+
+Not all hope is lost. Once I get Novihook finished, along with another desktop app into
+commercial use (in an attempt to make some money), I will unarchive these repos. However,
+in order to keep my focus alive, I will be making polls, as to what you guys think I
+should focus on first after the first two (Novihook, I.T.) gets released. Basically,
+instead of battling up multiple repos and trying to get the primary focus on, I will
+progress into making the first one and make a public release. I would assume that
+considering the amount of stars on LXEB, y'all probably want me to finish LXEB first
+before the others.
+
+Up until then... let's cook! 😎
+
+---
 
 ## Questions 
 ### Why name it like that?
